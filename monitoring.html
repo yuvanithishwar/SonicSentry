@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SonicSentry - Monitoring Areas</title>
+
+    <link rel="stylesheet" href="monitoring.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                🔊
+            </div>
+
+            <div>
+                <h2>SonicSentry</h2>
+                <p>Noise Monitoring</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>🏠</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="analysis.html" class="nav-item">
+                <span>📊</span>
+                <span>Noise Analysis</span>
+            </a>
+
+            <a href="monitoring.html" class="nav-item active">
+                <span>📍</span>
+                <span>Monitoring Areas</span>
+            </a>
+
+            <a href="alerts.html" class="nav-item">
+                <span>⚠️</span>
+                <span>Alerts</span>
+            </a>
+
+            <a href="impact.html" class="nav-item">
+                <span>🧠</span>
+                <span>AI Impact Analysis</span>
+            </a>
+
+            <a href="history.html" class="nav-item">
+                <span>📅</span>
+                <span>History</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="index.html" class="nav-item logout">
+                <span>🚪</span>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>Monitoring Areas</h1>
+
+                <p>
+                    Monitor noise levels across different
+                    locations and zones.
+                </p>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                System Online
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             SUMMARY CARDS
+        ========================== -->
+
+        <section class="summary-cards">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <p>Total Areas</p>
+
+                    <h2>06</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📡
+                </div>
+
+                <div>
+
+                    <p>Active Sensors</p>
+
+                    <h2>05</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    🔊
+                </div>
+
+                <div>
+
+                    <p>Average Noise</p>
+
+                    <h2>64 <span>dB</span></h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <p>High Noise Areas</p>
+
+                    <h2>02</h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             AREA LIST
+        ========================== -->
+
+        <section class="panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>Monitored Locations</h2>
+
+                    <p>
+                        Current status of deployed sound sensors
+                    </p>
+
+                </div>
+
+
+                <button class="refresh-button"
+                        onclick="location.reload()">
+
+                    ↻ Refresh
+
+                </button>
+
+            </div>
+
+
+
+            <div class="area-table">
+
+
+                <!-- TABLE HEADER -->
+
+                <div class="table-header">
+
+                    <span>Location</span>
+
+                    <span>Zone Type</span>
+
+                    <span>Sensor ID</span>
+
+                    <span>Noise</span>
+
+                    <span>Status</span>
+
+                </div>
+
+
+
+                <!-- AREA 1 -->
+
+                <div class="table-row">
+
+                    <div class="location">
+
+                        <div class="location-icon">
+                            🏠
+                        </div>
+
+                        <div>
+
+                            <strong>Residential Area</strong>
+
+                            <small>North Zone</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="zone residential">
+                        Residential
+                    </span>
+
+
+                    <strong>
+                        SS-001
+                    </strong>
+
+
+                    <strong class="noise-safe">
+                        58 dB
+                    </strong>
+
+
+                    <span class="status safe">
+                        ● Normal
+                    </span>
+
+                </div>
+
+
+
+                <!-- AREA 2 -->
+
+                <div class="table-row">
+
+                    <div class="location">
+
+                        <div class="location-icon">
+                            🏢
+                        </div>
+
+                        <div>
+
+                            <strong>Commercial Area</strong>
+
+                            <small>Central Zone</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="zone commercial">
+                        Commercial
+                    </span>
+
+
+                    <strong>
+                        SS-002
+                    </strong>
+
+
+                    <strong class="noise-moderate">
+                        67 dB
+                    </strong>
+
+
+                    <span class="status moderate">
+                        ● Moderate
+                    </span>
+
+                </div>
+
+
+
+                <!-- AREA 3 -->
+
+                <div class="table-row">
+
+                    <div class="location">
+
+                        <div class="location-icon">
+                            🏭
+                        </div>
+
+                        <div>
+
+                            <strong>Industrial Area</strong>
+
+                            <small>East Zone</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="zone industrial">
+                        Industrial
+                    </span>
+
+
+                    <strong>
+                        SS-003
+                    </strong>
+
+
+                    <strong class="noise-high">
+                        84 dB
+                    </strong>
+
+
+                    <span class="status high">
+                        ● High
+                    </span>
+
+                </div>
+
+
+
+                <!-- AREA 4 -->
+
+                <div class="table-row">
+
+                    <div class="location">
+
+                        <div class="location-icon">
+                            🖥️
+                        </div>
+
+                        <div>
+
+                            <strong>Data Centre</strong>
+
+                            <small>Technology Park</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="zone datacenter">
+                        Data Centre
+                    </span>
+
+
+                    <strong>
+                        SS-004
+                    </strong>
+
+
+                    <strong class="noise-moderate">
+                        72 dB
+                    </strong>
+
+
+                    <span class="status moderate">
+                        ● Moderate
+                    </span>
+
+                </div>
+
+
+
+                <!-- AREA 5 -->
+
+                <div class="table-row">
+
+                    <div class="location">
+
+                        <div class="location-icon">
+                            🏫
+                        </div>
+
+                        <div>
+
+                            <strong>Educational Area</strong>
+
+                            <small>West Zone</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="zone educational">
+                        Educational
+                    </span>
+
+
+                    <strong>
+                        SS-005
+                    </strong>
+
+
+                    <strong class="noise-safe">
+                        54 dB
+                    </strong>
+
+
+                    <span class="status safe">
+                        ● Normal
+                    </span>
+
+                </div>
+
+
+
+                <!-- AREA 6 -->
+
+                <div class="table-row">
+
+                    <div class="location">
+
+                        <div class="location-icon">
+                            🚦
+                        </div>
+
+                        <div>
+
+                            <strong>Traffic Junction</strong>
+
+                            <small>South Zone</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="zone traffic">
+                        Traffic
+                    </span>
+
+
+                    <strong>
+                        SS-006
+                    </strong>
+
+
+                    <strong class="noise-high">
+                        81 dB
+                    </strong>
+
+
+                    <span class="status high">
+                        ● High
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             AREA DETAILS
+        ========================== -->
+
+        <section class="details-grid">
+
+
+            <!-- SENSOR INFORMATION -->
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>Sensor Network</h2>
+
+                        <p>
+                            Sensor connectivity overview
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sensor-list">
+
+
+                    <div class="sensor-item">
+
+                        <div class="sensor-status-icon online">
+                            📡
+                        </div>
+
+                        <div>
+
+                            <strong>SS-001</strong>
+
+                            <p>Residential Area</p>
+
+                        </div>
+
+                        <span class="online">
+                            Online
+                        </span>
+
+                    </div>
+
+
+                    <div class="sensor-item">
+
+                        <div class="sensor-status-icon online">
+                            📡
+                        </div>
+
+                        <div>
+
+                            <strong>SS-002</strong>
+
+                            <p>Commercial Area</p>
+
+                        </div>
+
+                        <span class="online">
+                            Online
+                        </span>
+
+                    </div>
+
+
+                    <div class="sensor-item">
+
+                        <div class="sensor-status-icon online">
+                            📡
+                        </div>
+
+                        <div>
+
+                            <strong>SS-003</strong>
+
+                            <p>Industrial Area</p>
+
+                        </div>
+
+                        <span class="online">
+                            Online
+                        </span>
+
+                    </div>
+
+
+                    <div class="sensor-item">
+
+                        <div class="sensor-status-icon offline">
+                            📡
+                        </div>
+
+                        <div>
+
+                            <strong>SS-004</strong>
+
+                            <p>Data Centre</p>
+
+                        </div>
+
+                        <span class="offline">
+                            Offline
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MONITORING INFORMATION -->
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>Monitoring Information</h2>
+
+                        <p>
+                            SonicSentry monitoring coverage
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-list">
+
+
+                    <div class="info-item">
+
+                        <span>🔊</span>
+
+                        <div>
+
+                            <strong>Continuous Monitoring</strong>
+
+                            <p>
+                                Sensors continuously measure
+                                environmental sound levels.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>📍</span>
+
+                        <div>
+
+                            <strong>Location Tracking</strong>
+
+                            <p>
+                                Each sensor is associated
+                                with a specific monitoring area.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>🧠</span>
+
+                        <div>
+
+                            <strong>AI Analysis</strong>
+
+                            <p>
+                                Noise data can be analyzed
+                                to estimate potential impacts.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <footer>
+
+            SonicSentry • Environmental Noise Monitoring System
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

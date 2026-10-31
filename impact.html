@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SonicSentry - AI Impact Analysis</title>
+
+
+    <style>
+
+        /* =========================================
+           SONICSENTRY AI IMPACT ANALYSIS
+           ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+
+        :root {
+
+            --light-blue: #E9F1FA;
+            --bright-blue: #00ABE4;
+            --white: #FFFFFF;
+            --navy: #17365D;
+            --text: #334E68;
+            --gray: #6B7C93;
+            --border: #D9E5F0;
+
+        }
+
+
+        body {
+
+            background: #F5F9FD;
+
+            color: var(--text);
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =========================================
+           SIDEBAR
+           ========================================= */
+
+        .sidebar {
+
+            position: fixed;
+
+            left: 0;
+
+            top: 0;
+
+            width: 250px;
+
+            height: 100vh;
+
+            background: white;
+
+            border-right: 1px solid var(--border);
+
+            padding: 28px 20px;
+
+            z-index: 10;
+
+        }
+
+
+        .sidebar-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 8px 10px 35px;
+
+        }
+
+
+        .brand-icon {
+
+            width: 58px;
+
+            height: 58px;
+
+            background: var(--bright-blue);
+
+            border-radius: 16px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 27px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(0,171,228,0.20);
+
+        }
+
+
+        .sidebar-brand h2 {
+
+            color: var(--navy);
+
+            font-size: 22px;
+
+        }
+
+
+        .sidebar-brand p {
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* Navigation */
+
+        .navigation {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+        }
+
+
+        .nav-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px 14px;
+
+            border-radius: 12px;
+
+            color: var(--gray);
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .nav-item span:first-child {
+
+            width: 25px;
+
+            text-align: center;
+
+            font-size: 19px;
+
+        }
+
+
+        .nav-item:hover {
+
+            background: var(--light-blue);
+
+            color: var(--navy);
+
+        }
+
+
+        .nav-item.active {
+
+            background: var(--light-blue);
+
+            color: var(--navy);
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           MAIN
+           ========================================= */
+
+        .main-content {
+
+            margin-left: 250px;
+
+            padding: 35px 45px;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =========================================
+           HEADER
+           ========================================= */
+
+        .top-bar {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .page-title h1 {
+
+            color: var(--navy);
+
+            font-size: 30px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .page-title p {
+
+            color: var(--gray);
+
+            font-size: 14px;
+
+        }
+
+
+        .system-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+        }
+
+
+        .status-dot {
+
+            width: 9px;
+
+            height: 9px;
+
+            background: #2ECC71;
+
+            border-radius: 50%;
+
+        }
+
+
+        /* =========================================
+           INPUT SECTION
+           ========================================= */
+
+        .analysis-input {
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(23,54,93,0.05);
+
+        }
+
+
+        .analysis-input h2 {
+
+            color: var(--navy);
+
+            font-size: 20px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .analysis-input > p {
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .input-row {
+
+            display: flex;
+
+            align-items: end;
+
+            gap: 20px;
+
+        }
+
+
+        .input-box {
+
+            flex: 1;
+
+        }
+
+
+        .input-box label {
+
+            display: block;
+
+            color: var(--navy);
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .db-input {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            color: var(--navy);
+
+        }
+
+
+        .db-input:focus {
+
+            border-color: var(--bright-blue);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,171,228,0.12);
+
+        }
+
+
+        .analyse-button {
+
+            padding: 14px 28px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: var(--bright-blue);
+
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .analyse-button:hover {
+
+            background: #0099CE;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* =========================================
+           RESULT GRID
+           ========================================= */
+
+        .result-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================================
+           NOISE LEVEL CARD
+           ========================================= */
+
+        .noise-card {
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(23,54,93,0.05);
+
+        }
+
+
+        .card-heading {
+
+            color: var(--navy);
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .noise-display {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin: 15px 0 25px;
+
+        }
+
+
+        .db-value {
+
+            color: var(--bright-blue);
+
+            font-size: 55px;
+
+            font-weight: 700;
+
+        }
+
+
+        .db-unit {
+
+            color: var(--gray);
+
+            font-size: 20px;
+
+        }
+
+
+        /* Gauge */
+
+        .gauge {
+
+            height: 13px;
+
+            width: 100%;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    #2ECC71 0%,
+                    #2ECC71 40%,
+                    #F1C40F 40%,
+                    #F1C40F 65%,
+                    #F39C12 65%,
+                    #F39C12 80%,
+                    #E74C3C 80%,
+                    #E74C3C 100%
+                );
+
+            position: relative;
+
+        }
+
+
+        .gauge-marker {
+
+            position: absolute;
+
+            top: -6px;
+
+            left: 50%;
+
+            width: 5px;
+
+            height: 25px;
+
+            background: var(--navy);
+
+            border-radius: 5px;
+
+            transition: 0.4s;
+
+        }
+
+
+        .gauge-labels {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            margin-top: 8px;
+
+        }
+
+
+        /* =========================================
+           AI RESULT
+           ========================================= */
+
+        .ai-card {
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(23,54,93,0.05);
+
+        }
+
+
+        .ai-heading {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .ai-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            background: var(--light-blue);
+
+            border-radius: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 20px;
+
+        }
+
+
+        .ai-heading h2 {
+
+            color: var(--navy);
+
+            font-size: 18px;
+
+        }
+
+
+        .impact-level {
+
+            display: inline-block;
+
+            padding: 7px 14px;
+
+            background: #FFF4DF;
+
+            color: #C77800;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .ai-result {
+
+            color: var(--text);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           IMPACT CARDS
+           ========================================= */
+
+        .impact-section {
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(23,54,93,0.05);
+
+        }
+
+
+        .impact-section h2 {
+
+            color: var(--navy);
+
+            font-size: 19px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .impact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .impact-card {
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            padding: 20px;
+
+        }
+
+
+        .impact-card .icon {
+
+            font-size: 25px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .impact-card h3 {
+
+            color: var(--navy);
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .impact-card p {
+
+            color: var(--gray);
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================================
+           AI NOTE
+           ========================================= */
+
+        .ai-note {
+
+            margin-top: 25px;
+
+            padding: 18px;
+
+            background: var(--light-blue);
+
+            border-radius: 12px;
+
+            color: var(--gray);
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .ai-note strong {
+
+            color: var(--navy);
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+
+        @media (max-width: 950px) {
+
+            .sidebar {
+
+                width: 210px;
+
+            }
+
+            .main-content {
+
+                margin-left: 210px;
+
+                padding: 25px;
+
+            }
+
+            .result-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .impact-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .sidebar {
+
+                position: relative;
+
+                width: 100%;
+
+                height: auto;
+
+            }
+
+            .main-content {
+
+                margin-left: 0;
+
+            }
+
+            .top-bar {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+            }
+
+            .input-row {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     SIDEBAR
+     ========================================= -->
+
+<aside class="sidebar">
+
+
+    <div class="sidebar-brand">
+
+        <div class="brand-icon">
+            🔊
+        </div>
+
+        <div>
+
+            <h2>SonicSentry</h2>
+
+            <p>
+                Noise Monitoring
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav class="navigation">
+
+
+        <a href="dashboard.html"
+           class="nav-item">
+
+            <span>🏠</span>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a href="analysis.html"
+           class="nav-item">
+
+            <span>📊</span>
+
+            <span>
+                Noise Analysis
+            </span>
+
+        </a>
+
+
+        <a href="monitoring.html"
+           class="nav-item">
+
+            <span>📍</span>
+
+            <span>
+                Monitoring Areas
+            </span>
+
+        </a>
+
+
+        <a href="alerts.html"
+           class="nav-item">
+
+            <span>⚠️</span>
+
+            <span>
+                Alerts
+            </span>
+
+        </a>
+
+
+        <a href="impact.html"
+           class="nav-item active">
+
+            <span>🧠</span>
+
+            <span>
+                AI Impact Analysis
+            </span>
+
+        </a>
+
+
+        <a href="history.html"
+           class="nav-item">
+
+            <span>📅</span>
+
+            <span>
+                History
+            </span>
+
+        </a>
+
+
+    </nav>
+
+</aside>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+     ========================================= -->
+
+<main class="main-content">
+
+
+    <!-- HEADER -->
+
+    <div class="top-bar">
+
+
+        <div class="page-title">
+
+            <h1>
+                AI Impact Analysis
+            </h1>
+
+            <p>
+                Analyse sound levels and understand their potential impact.
+            </p>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            System Online
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         INPUT
+         ===================================== -->
+
+    <section class="analysis-input">
+
+
+        <h2>
+            Analyse Noise Level
+        </h2>
+
+
+        <p>
+            Enter the measured sound level to generate an impact analysis.
+        </p>
+
+
+        <div class="input-row">
+
+
+            <div class="input-box">
+
+                <label for="dbInput">
+                    Sound Level (dB)
+                </label>
+
+                <input
+                    type="number"
+                    id="dbInput"
+                    class="db-input"
+                    placeholder="Example: 75"
+                    min="0"
+                    max="150"
+                    value="65"
+                >
+
+            </div>
+
+
+            <button
+                class="analyse-button"
+                onclick="analyseNoise()">
+
+                🧠 Analyse with AI
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         RESULT
+         ===================================== -->
+
+    <section class="result-grid">
+
+
+        <!-- NOISE CARD -->
+
+        <div class="noise-card">
+
+
+            <h2 class="card-heading">
+                Current Sound Level
+            </h2>
+
+
+            <div class="noise-display">
+
+                <span
+                    id="dbValue"
+                    class="db-value">
+
+                    65
+
+                </span>
+
+                <span class="db-unit">
+                    dB
+                </span>
+
+            </div>
+
+
+            <div class="gauge">
+
+                <div
+                    id="gaugeMarker"
+                    class="gauge-marker">
+                </div>
+
+            </div>
+
+
+            <div class="gauge-labels">
+
+                <span>0</span>
+
+                <span>40</span>
+
+                <span>70</span>
+
+                <span>90</span>
+
+                <span>120+</span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- AI CARD -->
+
+        <div class="ai-card">
+
+
+            <div class="ai-heading">
+
+
+                <div class="ai-icon">
+                    🧠
+                </div>
+
+
+                <h2>
+                    AI Assessment
+                </h2>
+
+
+            </div>
+
+
+            <span
+                id="impactLevel"
+                class="impact-level">
+
+                Moderate Impact
+
+            </span>
+
+
+            <p
+                id="aiResult"
+                class="ai-result">
+
+                The current sound level may cause
+                disturbance in surrounding areas.
+                Continuous exposure should be monitored.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         IMPACT AREAS
+         ===================================== -->
+
+    <section class="impact-section">
+
+
+        <h2>
+            Potential Impact on Surroundings
+        </h2>
+
+
+        <div class="impact-grid">
+
+
+            <!-- PEOPLE -->
+
+            <div class="impact-card">
+
+                <div class="icon">
+                    👥
+                </div>
+
+                <h3>
+                    People
+                </h3>
+
+                <p id="peopleImpact">
+
+                    Moderate noise may cause
+                    annoyance, disturbance and
+                    difficulty concentrating,
+                    especially during prolonged exposure.
+
+                </p>
+
+            </div>
+
+
+            <!-- ANIMALS -->
+
+            <div class="impact-card">
+
+                <div class="icon">
+                    🐦
+                </div>
+
+                <h3>
+                    Animals & Wildlife
+                </h3>
+
+                <p id="animalImpact">
+
+                    Persistent environmental noise
+                    may disturb animal behaviour
+                    and communication.
+
+                </p>
+
+            </div>
+
+
+            <!-- ENVIRONMENT -->
+
+            <div class="impact-card">
+
+                <div class="icon">
+                    🌳
+                </div>
+
+                <h3>
+                    Surrounding Environment
+                </h3>
+
+                <p id="environmentImpact">
+
+                    Increased noise indicates a
+                    potentially disturbed acoustic
+                    environment that should be monitored.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="ai-note">
+
+            <strong>Note:</strong>
+
+            This prototype provides an educational
+            assessment based on sound-level ranges.
+            Actual health and environmental impacts
+            depend on factors such as exposure duration,
+            frequency characteristics, location and
+            individual sensitivity.
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+     ========================================= -->
+
+<script>
+
+
+function analyseNoise() {
+
+
+    const input =
+        document.getElementById("dbInput");
+
+
+    const db =
+        Number(input.value);
+
+
+    if (
+        input.value === "" ||
+        db < 0 ||
+        db > 150
+    ) {
+
+        alert(
+            "Please enter a sound level between 0 and 150 dB."
+        );
+
+        return;
+
+    }
+
+
+    /* Display dB */
+
+    document.getElementById(
+        "dbValue"
+    ).textContent = db;
+
+
+    /* =====================================
+       GAUGE POSITION
+       ===================================== */
+
+    let position =
+        (db / 120) * 100;
+
+
+    if (position > 100) {
+
+        position = 100;
+
+    }
+
+
+    document.getElementById(
+        "gaugeMarker"
+    ).style.left = position + "%";
+
+
+
+    /* =====================================
+       AI ANALYSIS
+       ===================================== */
+
+    const level =
+        document.getElementById("impactLevel");
+
+
+    const result =
+        document.getElementById("aiResult");
+
+
+    const people =
+        document.getElementById("peopleImpact");
+
+
+    const animals =
+        document.getElementById("animalImpact");
+
+
+    const environment =
+        document.getElementById(
+            "environmentImpact"
+        );
+
+
+
+    /* LOW */
+
+    if (db < 50) {
+
+
+        level.textContent =
+            "Low Impact";
+
+
+        result.textContent =
+            "The sound level is relatively low. " +
+            "The surrounding acoustic environment " +
+            "is generally expected to be comfortable " +
+            "for normal activities.";
+
+
+        people.textContent =
+            "Low likelihood of significant disturbance " +
+            "for most people under normal conditions.";
+
+
+        animals.textContent =
+            "Limited disturbance is expected, although " +
+            "sensitive species may respond differently.";
+
+
+        environment.textContent =
+            "The acoustic environment is relatively quiet " +
+            "and suitable for routine monitoring.";
+
+    }
+
+
+
+    /* MODERATE */
+
+    else if (db < 70) {
+
+
+        level.textContent =
+            "Moderate Impact";
+
+
+        result.textContent =
+            "The current sound level may cause " +
+            "annoyance or disturbance in surrounding " +
+            "areas, particularly when exposure continues.";
+
+
+        people.textContent =
+            "May contribute to annoyance, distraction " +
+            "or difficulty concentrating during prolonged exposure.";
+
+
+        animals.textContent =
+            "Environmental noise may disturb communication " +
+            "or normal behaviour in some animals.";
+
+
+        environment.textContent =
+            "The area shows noticeable acoustic activity " +
+            "and should continue to be monitored.";
+
+    }
+
+
+
+    /* HIGH */
+
+    else if (db < 90) {
+
+
+        level.textContent =
+            "High Impact";
+
+
+        result.textContent =
+            "The sound level is high enough to require " +
+            "attention. Prolonged exposure may create " +
+            "greater disturbance for people and nearby wildlife.";
+
+
+        people.textContent =
+            "High noise can interfere with communication, " +
+            "concentration and comfort, especially when exposure persists.";
+
+
+        animals.textContent =
+            "Strong environmental noise may interfere with " +
+            "animal communication and behaviour.";
+
+
+        environment.textContent =
+            "The surrounding acoustic environment shows " +
+            "significant noise activity and should be investigated.";
+
+    }
+
+
+
+    /* VERY HIGH */
+
+    else {
+
+
+        level.textContent =
+            "Very High Impact";
+
+
+        result.textContent =
+            "The measured sound level is very high. " +
+            "The source should be investigated and the " +
+            "duration of exposure should be considered.";
+
+
+        people.textContent =
+            "Very high sound levels can create substantial " +
+            "disturbance and may present health concerns " +
+            "depending on exposure conditions.";
+
+
+        animals.textContent =
+            "Very high environmental noise may significantly " +
+            "disturb wildlife behaviour and communication.";
+
+
+        environment.textContent =
+            "The area is experiencing significant acoustic " +
+            "disturbance and should receive immediate attention.";
+
+    }
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

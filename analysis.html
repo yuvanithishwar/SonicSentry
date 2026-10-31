@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SonicSentry - Noise Analysis</title>
+
+    <link rel="stylesheet" href="analysis.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">🔊</div>
+
+            <div>
+                <h2>SonicSentry</h2>
+                <p>Noise Monitoring</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>🏠</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="analysis.html" class="nav-item active">
+                <span>📊</span>
+                <span>Noise Analysis</span>
+            </a>
+
+            <a href="monitoring.html" class="nav-item">
+                <span>📍</span>
+                <span>Monitoring Areas</span>
+            </a>
+
+            <a href="alerts.html" class="nav-item">
+                <span>⚠️</span>
+                <span>Alerts</span>
+            </a>
+
+            <a href="impact.html" class="nav-item">
+                <span>🧠</span>
+                <span>AI Impact Analysis</span>
+            </a>
+
+            <a href="history.html" class="nav-item">
+                <span>📅</span>
+                <span>History</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="index.html" class="nav-item logout">
+                <span>🚪</span>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <div>
+                <h1>Noise Analysis</h1>
+
+                <p>
+                    Analyze environmental sound levels
+                    and identify noise patterns.
+                </p>
+            </div>
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+
+        </header>
+
+
+        <!-- CURRENT READING -->
+
+        <section class="analysis-cards">
+
+            <div class="analysis-card">
+
+                <p>Current Noise</p>
+
+                <h2 id="currentNoise">
+                    68 <span>dB</span>
+                </h2>
+
+                <small>Live reading</small>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <p>Average Noise</p>
+
+                <h2>
+                    62 <span>dB</span>
+                </h2>
+
+                <small>Today's average</small>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <p>Peak Noise</p>
+
+                <h2>
+                    86 <span>dB</span>
+                </h2>
+
+                <small>Today's maximum</small>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <p>Noise Status</p>
+
+                <h2 id="noiseLevel">
+                    Moderate
+                </h2>
+
+                <small>AI classification</small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CHART -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>Noise Level Trend</h2>
+
+                    <p>
+                        Sound level variation throughout
+                        the monitoring period
+                    </p>
+
+                </div>
+
+
+                <select>
+
+                    <option>Today</option>
+
+                    <option>Last 7 Days</option>
+
+                    <option>Last 30 Days</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="chart">
+
+                <div class="chart-labels">
+
+                    <span>100</span>
+                    <span>80</span>
+                    <span>60</span>
+                    <span>40</span>
+                    <span>20</span>
+                    <span>0</span>
+
+                </div>
+
+
+                <div class="chart-area">
+
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+
+
+                    <svg
+                        viewBox="0 0 900 300"
+                        preserveAspectRatio="none">
+
+                        <polyline
+                            points="
+                            0,220
+                            70,200
+                            140,215
+                            210,180
+                            280,195
+                            350,150
+                            420,165
+                            490,120
+                            560,140
+                            630,105
+                            700,130
+                            770,95
+                            840,115
+                            900,90
+                            "
+                        />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <div class="time-labels">
+
+                <span>12 AM</span>
+                <span>4 AM</span>
+                <span>8 AM</span>
+                <span>12 PM</span>
+                <span>4 PM</span>
+                <span>8 PM</span>
+                <span>12 AM</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ZONE ANALYSIS -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>Zone-wise Noise Analysis</h2>
+
+                    <p>
+                        Comparison of noise levels
+                        across monitoring areas
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="zone-table">
+
+                <div class="table-header">
+
+                    <span>Monitoring Area</span>
+
+                    <span>Average</span>
+
+                    <span>Peak</span>
+
+                    <span>Status</span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Residential Area</span>
+
+                    <strong>58 dB</strong>
+
+                    <strong>71 dB</strong>
+
+                    <span class="status safe">
+                        Normal
+                    </span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Commercial Area</span>
+
+                    <strong>67 dB</strong>
+
+                    <strong>79 dB</strong>
+
+                    <span class="status moderate">
+                        Moderate
+                    </span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Industrial Area</span>
+
+                    <strong>74 dB</strong>
+
+                    <strong>88 dB</strong>
+
+                    <span class="status high">
+                        High
+                    </span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Data Centre</span>
+
+                    <strong>69 dB</strong>
+
+                    <strong>82 dB</strong>
+
+                    <span class="status moderate">
+                        Moderate
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- AI INFORMATION -->
+
+        <section class="panel ai-analysis">
+
+            <div class="ai-title">
+
+                <span>🧠</span>
+
+                <div>
+
+                    <h2>AI Noise Analysis</h2>
+
+                    <p>
+                        Automated interpretation of
+                        environmental noise data
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="ai-content">
+
+                <div>
+
+                    <strong>Current Assessment</strong>
+
+                    <p>
+                        The current sound level is
+                        moderately elevated. Continued
+                        exposure to elevated noise may
+                        cause disturbance to people in
+                        the surrounding area.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <strong>Environmental Observation</strong>
+
+                    <p>
+                        Persistent environmental noise
+                        may also disturb nearby wildlife
+                        and affect normal animal behavior.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            SonicSentry • Environmental Noise Monitoring System
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

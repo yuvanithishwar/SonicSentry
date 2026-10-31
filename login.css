@@ -1,0 +1,692 @@
+/* =========================================
+   SONICSENTRY LOGIN
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+:root {
+
+    --light-blue: #E9F1FA;
+    --bright-blue: #00ABE4;
+    --white: #FFFFFF;
+    --navy: #17365D;
+    --text: #334E68;
+    --gray: #6B7C93;
+    --border: #D9E5F0;
+
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.login-page {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #E9F1FA,
+            #FFFFFF
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* Background circles */
+
+.wave {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,171,228,0.08);
+
+    pointer-events: none;
+
+}
+
+
+.wave-1 {
+
+    width: 600px;
+
+    height: 600px;
+
+    right: -250px;
+
+    top: -250px;
+
+}
+
+
+.wave-2 {
+
+    width: 500px;
+
+    height: 500px;
+
+    left: -250px;
+
+    bottom: -250px;
+
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.login-container {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    min-height: 650px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px
+        rgba(23,54,93,0.15);
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.login-left {
+
+    background:
+        linear-gradient(
+            145deg,
+            #E9F1FA,
+            #DCECF8
+        );
+
+    padding: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+/* Brand */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 65px;
+
+}
+
+
+.brand-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 16px;
+
+    background: var(--bright-blue);
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,171,228,0.25);
+
+}
+
+
+.brand h1 {
+
+    color: var(--navy);
+
+    font-size: 30px;
+
+}
+
+
+.brand p {
+
+    color: var(--gray);
+
+    font-size: 14px;
+
+    margin-top: 3px;
+
+}
+
+
+/* Welcome */
+
+.welcome h2 {
+
+    color: var(--navy);
+
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+
+}
+
+
+.welcome > p {
+
+    color: var(--text);
+
+    line-height: 1.7;
+
+    max-width: 500px;
+
+    font-size: 16px;
+
+    margin-bottom: 38px;
+
+}
+
+
+/* Features */
+
+.feature-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+.feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.feature > span {
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 13px;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(23,54,93,0.08);
+
+}
+
+
+.feature strong {
+
+    color: var(--navy);
+
+    font-size: 16px;
+
+}
+
+
+.feature p {
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    margin-top: 4px;
+
+}
+
+
+/* =========================================
+   RIGHT SIDE
+   ========================================= */
+
+.login-right {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px;
+
+}
+
+
+/*
+   THIS controls the actual login form width.
+   Smaller than before.
+*/
+
+.login-form-container {
+
+    width: 100%;
+
+    max-width: 360px;
+
+}
+
+
+.mobile-logo {
+
+    display: none;
+
+}
+
+
+.login-form-container h2 {
+
+    color: var(--navy);
+
+    font-size: 34px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.login-description {
+
+    color: var(--gray);
+
+    font-size: 14px;
+
+    margin-bottom: 32px;
+
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.input-group {
+
+    margin-bottom: 20px;
+
+}
+
+
+.input-group label {
+
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: var(--navy);
+
+    background: white;
+
+}
+
+
+.input-group input:focus {
+
+    border-color:
+        var(--bright-blue);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0,171,228,0.12);
+
+}
+
+
+/* =========================================
+   LOGIN OPTIONS
+   ========================================= */
+
+.login-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    font-size: 12px;
+
+}
+
+
+.remember {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--gray);
+
+}
+
+
+.remember input {
+
+    accent-color:
+        var(--bright-blue);
+
+}
+
+
+.login-options a {
+
+    color: var(--bright-blue);
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+   ========================================= */
+
+.login-button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        var(--bright-blue);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.login-button:hover {
+
+    background: #0099CE;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================
+   CREATE ACCOUNT
+   ========================================= */
+
+.signup {
+
+    text-align: center;
+
+    margin-top: 22px;
+
+    font-size: 13px;
+
+    color: var(--gray);
+
+}
+
+
+.signup a {
+
+    color: var(--bright-blue);
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    margin-left: 5px;
+
+}
+
+
+.signup a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   DEMO BOX
+   ========================================= */
+
+.demo-box {
+
+    margin-top: 22px;
+
+    padding: 13px;
+
+    border-radius: 8px;
+
+    background: var(--light-blue);
+
+    color: var(--gray);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    text-align: center;
+
+}
+
+
+.demo-box strong {
+
+    color: var(--navy);
+
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.login-footer {
+
+    text-align: center;
+
+    color: #9AA9B8;
+
+    font-size: 10px;
+
+    margin-top: 22px;
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .login-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .login-left {
+
+        display: none;
+
+    }
+
+
+    .login-right {
+
+        padding: 40px 25px;
+
+    }
+
+
+    .mobile-logo {
+
+        display: flex;
+
+        width: 55px;
+
+        height: 55px;
+
+        background:
+            var(--bright-blue);
+
+        color: white;
+
+        border-radius: 14px;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 25px;
+
+        margin-bottom: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .login-page {
+
+        padding: 15px;
+
+    }
+
+
+    .login-container {
+
+        min-height: auto;
+
+        border-radius: 15px;
+
+    }
+
+
+    .login-right {
+
+        padding: 35px 22px;
+
+    }
+
+}

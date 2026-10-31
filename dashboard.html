@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SonicSentry Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                🔊
+            </div>
+
+            <div>
+
+                <h2>SonicSentry</h2>
+
+                <p>Noise Monitoring</p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+
+            <a href="dashboard.html"
+               class="nav-item active">
+
+                <span>🏠</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="analysis.html"
+               class="nav-item">
+
+                <span>📊</span>
+
+                <span>Noise Analysis</span>
+
+            </a>
+
+
+            <a href="monitoring.html"
+               class="nav-item">
+
+                <span>📍</span>
+
+                <span>Monitoring Areas</span>
+
+            </a>
+
+
+            <a href="alerts.html"
+               class="nav-item">
+
+                <span>⚠️</span>
+
+                <span>Alerts</span>
+
+            </a>
+
+
+            <a href="impact.html"
+               class="nav-item">
+
+                <span>🧠</span>
+
+                <span>AI Impact Analysis</span>
+
+            </a>
+
+
+            <a href="history.html"
+               class="nav-item">
+
+                <span>📅</span>
+
+                <span>History</span>
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- BOTTOM MENU -->
+
+        <div class="sidebar-bottom">
+
+
+            <a href="settings.html"
+               class="nav-item">
+
+                <span>⚙️</span>
+
+                <span>Settings</span>
+
+            </a>
+
+
+            <a href="index.html"
+               class="nav-item logout">
+
+                <span>🚪</span>
+
+                <span>Logout</span>
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+
+            <div>
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Real-time environmental noise monitoring
+                </p>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                System Online
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔊
+                </div>
+
+                <div>
+
+                    <p>Current Noise</p>
+
+                    <h2 id="currentNoise">
+                        68 <span>dB</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📈
+                </div>
+
+                <div>
+
+                    <p>Average Noise</p>
+
+                    <h2>
+                        62 <span>dB</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📡
+                </div>
+
+                <div>
+
+                    <p>Active Sensors</p>
+
+                    <h2>
+                        05
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <p>Active Alerts</p>
+
+                    <h2>
+                        02
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             MAIN DASHBOARD CARDS
+        ========================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- CURRENT NOISE -->
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>Current Noise Level</h2>
+
+                        <p>
+                            Live environmental sound measurement
+                        </p>
+
+                    </div>
+
+
+                    <span class="live-badge">
+                        ● LIVE
+                    </span>
+
+                </div>
+
+
+
+                <div class="noise-display">
+
+                    <div class="noise-number"
+                         id="bigNoise">
+
+                        68
+
+                        <span>dB</span>
+
+                    </div>
+
+
+                    <div class="noise-status"
+                         id="noiseStatus">
+
+                        <span></span>
+
+                        Within acceptable range
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="noise-info">
+
+
+                    <div>
+
+                        <span>Location</span>
+
+                        <strong>
+                            Main Monitoring Area
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Sensor ID</span>
+
+                        <strong>
+                            SS-001
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Last Updated</span>
+
+                        <strong id="lastUpdated">
+                            Just now
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- AI SUMMARY -->
+
+            <div class="panel ai-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>🤖 AI Impact Summary</h2>
+
+                        <p>
+                            Automated noise impact assessment
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ai-level">
+
+                    <span>Current Assessment</span>
+
+                    <strong id="aiAssessment">
+                        Moderate
+                    </strong>
+
+                </div>
+
+
+                <div class="ai-message">
+
+                    Current noise levels may cause
+                    disturbance to people in the
+                    surrounding area if exposure
+                    continues for a prolonged period.
+
+                </div>
+
+
+                <a href="impact.html"
+                   class="ai-button">
+
+                    View Full AI Analysis →
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             NOISE TREND
+        ========================== -->
+
+        <section class="panel trend-panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>Noise Trend</h2>
+
+                    <p>
+                        Noise level throughout the day
+                    </p>
+
+                </div>
+
+
+                <select>
+
+                    <option>Today</option>
+
+                    <option>Last 7 Days</option>
+
+                    <option>Last 30 Days</option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="chart">
+
+
+                <div class="chart-y">
+
+                    <span>100</span>
+
+                    <span>80</span>
+
+                    <span>60</span>
+
+                    <span>40</span>
+
+                    <span>20</span>
+
+                    <span>0</span>
+
+                </div>
+
+
+                <div class="chart-area">
+
+
+                    <div class="grid-line"></div>
+
+                    <div class="grid-line"></div>
+
+                    <div class="grid-line"></div>
+
+                    <div class="grid-line"></div>
+
+                    <div class="grid-line"></div>
+
+
+                    <svg
+                        viewBox="0 0 900 300"
+                        preserveAspectRatio="none"
+                    >
+
+                        <polyline
+                            points="
+                            0,210
+                            70,195
+                            140,215
+                            210,175
+                            280,185
+                            350,140
+                            420,155
+                            490,120
+                            560,135
+                            630,100
+                            700,125
+                            770,90
+                            840,110
+                            900,95
+                            "
+                        />
+
+                    </svg>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="chart-x">
+
+                <span>12 AM</span>
+
+                <span>4 AM</span>
+
+                <span>8 AM</span>
+
+                <span>12 PM</span>
+
+                <span>4 PM</span>
+
+                <span>8 PM</span>
+
+                <span>12 AM</span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             BOTTOM SECTION
+        ========================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- SENSOR STATUS -->
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>Sensor Network</h2>
+
+                        <p>
+                            Current sensor connection status
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sensor-status">
+
+
+                    <div class="sensor-row">
+
+                        <span class="online-dot"></span>
+
+                        <strong>
+                            Online Sensors
+                        </strong>
+
+                        <b>05</b>
+
+                    </div>
+
+
+                    <div class="sensor-row">
+
+                        <span class="offline-dot"></span>
+
+                        <strong>
+                            Offline Sensors
+                        </strong>
+
+                        <b>01</b>
+
+                    </div>
+
+
+                    <div class="sensor-row">
+
+                        <span class="total-dot"></span>
+
+                        <strong>
+                            Total Sensors
+                        </strong>
+
+                        <b>06</b>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RECENT ALERT -->
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>Recent Alert</h2>
+
+                        <p>
+                            Latest noise event
+                        </p>
+
+                    </div>
+
+
+                    <a href="alerts.html"
+                       class="view-link">
+
+                        View All
+
+                    </a>
+
+                </div>
+
+
+                <div class="alert-box">
+
+
+                    <div class="alert-icon">
+                        ⚠️
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            High noise detected
+                        </strong>
+
+                        <p>
+                            Industrial Area • 82 dB
+                        </p>
+
+                        <small>
+                            10 minutes ago
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <footer>
+
+            SonicSentry • Environmental Noise Monitoring System
+
+        </footer>
+
+
+    </main>
+
+
+</div>
+
+
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>
